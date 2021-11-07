@@ -12,7 +12,8 @@ $folders = Get-ChildItem -Directory
 $files = Get-ChildItem -File
 $texdd = "K:\GitHub\tex-design-development"
 $laem = "K:\GitHub\livroabertoem"
-$github = "K:\Gihub"
+$github = "K:\GitHub"
+$pwsfolder = "C:\Users\noaxp\OneDrive\Documents\PowerShell"
 
 new-alias 7zip 7z
 new-alias reboot Restart-Computer
