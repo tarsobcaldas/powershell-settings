@@ -1,0 +1,34 @@
+$env:Path +=  ";C:\Users\noaxp\AppData\Local\Discord\app-1.0.9002;C:\Users\noaxp\AppData\Local\Programs\Python\Python39\Scripts;C:\Program Files\7-Zip;C:\MinGW\bin;C:\Users\noaxp\AppData\Local\SumatraPDF\;C:\Program Files\Vim\vim82;C:\tools\neovim\Neovim\bin"
+$env:startup = "C:\Users\noaxp\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+
+# Dracula readline configuration. Requires version 2.0, if you have 1.2 convert to `Set-PSReadlineOption -TokenType`
+Set-PSReadlineOption -Color @{
+    "Command" = [ConsoleColor]::Green
+    "Parameter" = [ConsoleColor]::Gray
+    "Operator" = [ConsoleColor]::Magenta
+    "Variable" = [ConsoleColor]::White
+    "String" = [ConsoleColor]::Yellow
+    "Number" = [ConsoleColor]::Blue
+    "Type" = [ConsoleColor]::Cyan
+    "Comment" = [ConsoleColor]::DarkCyan
+}
+
+. "C:\Users\noaxp\OneDrive\Documents\PowerShell\dracula.ps1"
+
+$folders = Get-ChildItem -Directory
+$files = Get-ChildItem -File
+
+. winget-completion.ps1
+
+
+
+
+# Shows navigable menu of all options when hitting Tab
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+
+# Autocompletion for arrow keys
+Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward
+Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward
+
+new-alias 7zip 7z
+new-alias reboot Restart-Computer
